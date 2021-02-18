@@ -31,7 +31,7 @@ Terraform Module - Helm Neuvector Deployment
 ## file - nv-deployment.tf
 ```
 module "nv-deployment" {
-    source                  = "git::https://github.com/devseclabs/helm-module-nv/?ref=master"
+    source                  = "git::https://github.com/devseclabs/helm-module-nv/?ref=main"
     # NV settings
     ns                      =   "neuvector"
     tag                     =   "4.1.2"
