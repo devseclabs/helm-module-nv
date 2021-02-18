@@ -16,6 +16,8 @@ Terraform Module - Helm Neuvector Deployment
 | helm_name | helm name deployment | `string` | `{}` | yes |
 | ns | neuvector deployment namespace | `string` | `{}` | yes |
 | webui_service | NodePort/LoadBalancer ... | `string` | `[]` | yes |
+| containerd | Set to true, if the container runtime is containerd | `bool` | `[]` | no |
+| containerd_path | If containerd is enabled, this local containerd socket path will be used /var/run/containerd/containerd.sock	 | 
 | scanner_replicas | # replicas of scanners | `string` | `[]` | yes |
 | controller_replicas | # replicas of controllers | `string` | `[]` | yes |
 | registry_username | dockerhub username | `string` | `[]` | yes |
