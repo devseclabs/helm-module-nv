@@ -3,7 +3,7 @@ resource "kubernetes_namespace" "nv-ns" {
   metadata {
     
     labels = {
-      mylabel = "nvlabs"
+      mylabel = "neuvector"
     }
 
     name = var.ns
