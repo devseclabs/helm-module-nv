@@ -34,8 +34,8 @@ module "nv-deployment" {
     source                  = "git::https://github.com/devseclabs/helm-module-nv/?ref=main"
     # NV settings
     ns                      =   "neuvector"
-    tag                     =   "4.1.2"
-    scanner_replicas        =   "3"
+    tag                     =   "4.2.1"
+    scanner_replicas        =   "2"
     controller_replicas     =   "3"
     helm_name               =   "my-release"
     webui_service           =   "LoadBalancer"
@@ -43,6 +43,13 @@ module "nv-deployment" {
     # Dockerhub settings
     registry_username       =   "dockerhub-user"
     registry_password       =   "dockerhub-pass"
+
+    # to use configmap with license key / set yaml values in secret/initcfg.yaml
+    configmap = "false"
+
+    # to use Persistent Volume
+    # Require persistent volume type RWX
+    pvc_conf = "false"
 }
 ```
 

@@ -19,8 +19,21 @@ variable "scanner_replicas" {
 }
 
 variable "controller_replicas" {
-    default = "1"
+    default = "3"
 }
+
+variable "config_map" {
+    default = "false"
+}
+
+variable "config_data" {
+    default = file("./config/initcfg.yaml")
+}
+
+variable "pvc_conf" {
+    default = "false"
+}
+
 
 variable "containerd" {
     default = "false"

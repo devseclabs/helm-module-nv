@@ -72,5 +72,23 @@ resource "helm_release" "nv-helm" {
      name  = "containerd.path"
      value = var.containerd_path
    }
+
+    set {
+     name  = "controller.configmap.enabled"
+     value = var.configmap
+   }
+
+    set {
+     name  = "controller.configmap.data"
+     value = var.config_data
+   }
+
+    set {
+     name  = "controller.pvc.enabled"
+     value = var.pvc_conf
+   }
+   
+   
+
    depends_on = [kubernetes_secret.dockerhub]
 }
