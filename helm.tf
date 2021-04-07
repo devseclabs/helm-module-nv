@@ -78,11 +78,18 @@ resource "helm_release" "nv-helm" {
      value = var.configmap
    }
 
-    set {
-     count = var.configmap == "true" ? 1 : 0
-     name  = "controller.configmap.data"
-     value = file(var.config_data)
-   }
+    dynamic "set" {
+    for_each = var.configmap == "true" ? 1 : 0
+    content {
+      name  = "controller.configmap.data"
+      value = file(var.config_data)
+    }
+  }
+  #   set {
+  #    count = var.configmap == "true" ? 1 : 0
+  #    name  = "controller.configmap.data"
+  #    value = file(var.config_data)
+  #  }
 
     set {
      name  = "controller.pvc.enabled"
