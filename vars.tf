@@ -69,5 +69,5 @@ variable "kube_context" {
 }
 
 variable "kube_path" {
-    default = "$HOME/.kube/config"  
+    default = "~/.kube/config"  
 }
