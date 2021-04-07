@@ -28,13 +28,18 @@ Terraform Module - Helm Neuvector Deployment
 
 - Create the NV deployment file:
 
+## Export your k8s context values:
+
+```
+# default path:  ~/.kube/config
+export KUBE_CTX="context-name"
+export KUBE_CONFIG_PATH="context-path"
+```
+
 ## file - nv-deployment.tf
 ```
 module "nv-deployment" {
     source                  = "git::https://github.com/devseclabs/helm-module-nv/?ref=main"
-    #K8s Conf
-    #kube_path = "$HOME/.kube/config"
-    Kube_context = "my-k8s-context"
 
     # NV settings
     ns                      =   "neuvector"
