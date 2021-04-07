@@ -1,5 +1,5 @@
 terraform {
-  required_version = ">= 0.13"
+  #required_version = ">= 0.13"
 }
 
 provider "kubernetes" {
@@ -9,5 +9,5 @@ provider "kubernetes" {
 }
 
 provider "helm" {
-  version = "~> 1.3.2"
+  #version = "~> 1.3.2"
 }
