@@ -27,7 +27,7 @@ variable "configmap" {
 }
 
 variable "config_data" {
-    default = "./config/initcfg.yaml"
+    default = "."
 }
 
 variable "pvc_conf" {

@@ -44,8 +44,9 @@ module "nv-deployment" {
     registry_username       =   "dockerhub-user"
     registry_password       =   "dockerhub-pass"
 
-    # to use configmap with license key / set yaml values in secret/initcfg.yaml
+    # to use configmap with license key / set yaml values in initcfg.yaml
     configmap = "false"
+    config_data = "path-to-yaml"
 
     # to use Persistent Volume
     # Require persistent volume type RWX
