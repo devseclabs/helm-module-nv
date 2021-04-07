@@ -28,15 +28,16 @@ Terraform Module - Helm Neuvector Deployment
 
 - Create the NV deployment file:
 
-## Export your k8s context values:
+## Step 1: Export first your k8s context values:
 
 ```
 # default path:  ~/.kube/config
+# if you don't know your context, please check the context using this command:  ```kubectl config get-contexts```
 export KUBE_CTX="context-name"
-export KUBE_CONFIG_PATH="context-path"
+export KUBE_CONFIG_PATH="~/.kube/config"
 ```
 
-## file - nv-deployment.tf
+## Step 2 Create and updatethe values in the file - nv-deployment.tf
 ```
 module "nv-deployment" {
     source                  = "git::https://github.com/devseclabs/helm-module-nv/?ref=main"
@@ -48,6 +49,9 @@ module "nv-deployment" {
     controller_replicas     =   "3"
     helm_name               =   "my-release"
     webui_service           =   "LoadBalancer"
+
+    # update your context
+    kube_context            =   "nvdemo-aks"
 
     # Dockerhub settings
     registry_username       =   "dockerhub-user"
@@ -62,7 +66,7 @@ module "nv-deployment" {
     pvc_conf = "false"
 }
 ```
-
+## Step 3: Init your conf and Apply
 -  Deploy and Manage your deployment using terraform:
     - init your plugins  - ```terraform init```
     - plan your deployment - ```terraform plan```
