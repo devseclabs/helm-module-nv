@@ -64,6 +64,10 @@ variable "helm_name" {
     default = "my-release"
 }
 
-variable "context" {
-  default = "my-context"
+variable "kube_context" {
+  default = "default"
+}
+
+variable "kube_path" {
+    default = "$HOME/.kube/config"  
 }

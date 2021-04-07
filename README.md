@@ -32,6 +32,10 @@ Terraform Module - Helm Neuvector Deployment
 ```
 module "nv-deployment" {
     source                  = "git::https://github.com/devseclabs/helm-module-nv/?ref=main"
+    #K8s Conf
+    #kube_path = "$HOME/.kube/config"
+    Kube_context = "my-k8s-context"
+
     # NV settings
     ns                      =   "neuvector"
     tag                     =   "4.2.1"
