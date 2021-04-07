@@ -80,7 +80,7 @@ resource "helm_release" "nv-helm" {
 
     set {
      name  = "controller.configmap.data"
-     value = var.config_data
+     value = file(var.config_data)
    }
 
     set {
