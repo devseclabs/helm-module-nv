@@ -22,7 +22,7 @@ variable "controller_replicas" {
     default = "3"
 }
 
-variable "config_map" {
+variable "configmap" {
     default = "false"
 }
 
