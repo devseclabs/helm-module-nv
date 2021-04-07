@@ -79,6 +79,7 @@ resource "helm_release" "nv-helm" {
    }
 
     set {
+     count = var.configmap == "true" ? 1 : 0
      name  = "controller.configmap.data"
      value = file(var.config_data)
    }
