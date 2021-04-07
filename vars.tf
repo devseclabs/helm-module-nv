@@ -63,3 +63,7 @@ variable "helm_chart" {
 variable "helm_name" {
     default = "my-release"
 }
+
+variable "context" {
+  default = "my-context"
+}
