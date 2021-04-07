@@ -7,7 +7,7 @@ provider "helm" {
   kubernetes {
     #define locally $HOME/.kube/config
     #https://registry.terraform.io/providers/hashicorp/helm/latest/docs
-    #config_path    = "~/.kube/config"
+    config_path    = "~/.kube/config"
     # UPDATE YOUR CONTEXT
     config_context = var.context
    }
