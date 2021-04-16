@@ -40,30 +40,28 @@ export KUBE_CONFIG_PATH="~/.kube/config"
 ## Step 2 Create and updatethe values in the file - nv-deployment.tf
 ```
 module "nv-deployment" {
-    source                  = "git::https://github.com/devseclabs/helm-module-nv/?ref=main"
+    source                  = "git::https://github.com/devseclabs/nv-deployment.git?ref=feature/main"
 
-    # NV settings
-    ns                      =   "neuvector"
-    tag                     =   "4.2.1"
-    scanner_replicas        =   "2"
-    controller_replicas     =   "3"
-    helm_name               =   "my-release"
-    webui_service           =   "LoadBalancer"
+    #see provider.tf - k8s context configured in ~/-kube/config
+    context                 =   "context-name"
 
-    # update your context
-    kube_context            =   "nvdemo-aks"
+    # dockerhub by default
+    registry_username   = "mi-registry-user"
+    #registry_password   = ""
+    #registry_server     = "registry-server"
 
-    # Dockerhub settings
-    registry_username       =   "dockerhub-user"
-    registry_password       =   "dockerhub-pass"
+    #config enable
+    enable_config = true
+    pass = "nvlabs123"
 
-    # to use configmap / set yaml values in initcfg.yaml and set your path
-    #configmap = "false"
-    #config_data = "path-to-yaml"
+    #nv conf
+    manager_svc_type = "LoadBalancer"
+    scanner_replicas = 1
+    controller_replicas = 3
+    nv_version = "4.2.1"
 
-    # to use Persistent Volume
-    # Require persistent volume type RWX
-    pvc_conf = "false"
+    #license data
+    license = "license.txt"
 }
 ```
 ## Step 3: Init your conf and Apply
