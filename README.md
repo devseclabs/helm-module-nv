@@ -40,7 +40,7 @@ export KUBE_CONFIG_PATH="~/.kube/config"
 ## Step 2 Create and updatethe values in the file - nv-deployment.tf
 ```
 module "nv-deployment" {
-    source                  = "git::https://github.com/devseclabs/nv-deployment.git?ref=feature/main"
+    source                  = "git::https://github.com/devseclabs/nv-deployment.git?ref=main"
 
     #see provider.tf - k8s context configured in ~/-kube/config
     context                 =   "context-name"
