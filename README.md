@@ -40,28 +40,16 @@ export KUBE_CONFIG_PATH="~/.kube/config"
 ## Step 2 Create and updatethe values in the file - nv-deployment.tf
 ```
 module "nv-deployment" {
-    source                  = "git::https://github.com/devseclabs/nv-deployment.git?ref=main"
+    source                  = "git::https://github.com/devseclabs/helm-basic-nv.git?ref=main"
+    # neuvector settings
+    tag="4.2.1"
+    scanner_replicas = "3"
+    controller_replicas = "3"
+    webui_service = "LoadBalancer"
 
-    #see provider.tf - k8s context configured in ~/-kube/config
-    context                 =   "context-name"
-
-    # dockerhub by default
-    registry_username   = "mi-registry-user"
-    #registry_password   = ""
-    #registry_server     = "registry-server"
-
-    #config enable
-    enable_config = true
-    pass = "nvlabs123"
-
-    #nv conf
-    manager_svc_type = "LoadBalancer"
-    scanner_replicas = 1
-    controller_replicas = 3
-    nv_version = "4.2.1"
-
-    #license data
-    license = "license.txt"
+    # dockerhub settings
+    registry_username   = "user"
+    registry_password   = "pass"
 }
 ```
 ## Step 3: Init your conf and Apply
